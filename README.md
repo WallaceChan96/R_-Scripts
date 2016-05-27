@@ -1,6 +1,6 @@
 # R_-Scripts
 
-#####Gloor Lab Projects
+##Gloor Lab Projects
 
 The projects within this repository have been conducted at the Gloor Lab (Biochemistry Department at the University of Western Ontario).
 
