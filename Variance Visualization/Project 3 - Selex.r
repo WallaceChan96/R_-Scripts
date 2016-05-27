@@ -1,8 +1,16 @@
-#attempt with selex (data incorporated in aldex)
+##################
+#
+#Author: Wallace Chan
+#Date: 27/5/2016
+#
+#Using Selex data set (incorporated with ALDEx2 package)
+#
+#####
 
 #load selex data
 data(selex)
 
+#seperating data into two parts to be compared
 n <- selex[,1:7]
 s <- selex[,8:14]
 
@@ -35,6 +43,9 @@ instance.n <- 0
 instance.s <- 0
 
 
+#loop that places the 20 Monte-Carlo Instances of each sample/column into a column in the sample matrix
+#uses cbind function and and interates the "instance.n" variable to group 20 instances together
+#two loops for two different sets
 for(sampleIndex.n in 1:ncol(n))
 	{
 		for (m in 1:20)
@@ -141,6 +152,7 @@ mean.1s <- NULL
 mean.2n <- NULL
 mean.2s <- NULL
 
+#loops to place the mean of both layers of procustes into seperate matrices
 for(i in 1:nrow(pro.total1.n))
 	{
 		mean.1n <- c(mean.1n, mean(pro.total1.n[i,]))
@@ -153,6 +165,8 @@ for(j in 1:nrow(pro.total1.s))
 		mean.2s <- c(mean.2s, mean(pro.total2.s[j,])) 
 	}
 
+
+#final plost
 plot(pca.1n$x[,1], pca.1n$x[,2], col="blue")
 points(mean.1n, mean.2n, col="red")	
 
